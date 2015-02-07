@@ -1,0 +1,111 @@
+=pod
+
+=encoding utf8
+
+=head1 Name
+
+Perl5 to Perl6 - A catalog of Perl5 idioms, snippets, and recipes translated to Perl6.
+
+=head1 Description
+
+...
+
+=head1 Invitation to Contribute
+
+B<Please do!> I am not the best Perl5 hacker and the beginning of 2015
+marks my first real interest in Perl6. I started this to help keep
+track of the journey and not have to redo or relearn things before
+they sink in.
+
+=head2 @INC...
+
+=head3 use lib ...;
+
+Something I resort to where the C<ENV> is unsure and C<@INC> stuff has
+to be done at run time looks like this messE<ndash>;
+
+=over 4
+
+=item Perl5
+
+ my $lib;
+ BEGIN {
+     use Path::Tiny;
+     use File::Spec;
+     $lib = path( path( File::Spec->rel2abs(__FILE__) )->parent, "lib" );
+ }
+ use lib $lib;
+
+Which in Perl6 becomes the much more graceful and obviousE<ndash>;
+
+=item Perl6
+
+ use lib $?FILE.IO.abspath.IO.dirname ~ "/lib";
+
+Or the shorter and (usually?) equivalent-
+
+ use lib $?FILE.IO.dirname ~ "/lib";
+
+=back
+
+=head1 Code Repository
+
+L<http://github.com/pangyre/p5-snippets-p6>.
+
+=head1 See Also
+
+=over 4
+
+=item L<https://github.com/tadzik/rakudobrew>
+
+=item L<http://perl6.org/>
+
+=item L<https://github.com/tadzik/panda/>
+
+=item L<http://modules.perl6.org/>
+
+=back
+
+=head1 Authors
+
+=over 4                                                                                                                                         
+
+=item Ashley Pond V E<middot> ashley.pond.v@gmail.com E<middot> L<http://pangyresoft.com>.
+
+=item {Your Info Here} :P
+
+=back
+
+=head1 License
+
+You may redistribute and modify this package under the same terms as Perl itself.
+
+=head1 Disclaimer of Warranty
+
+Because this software is licensed free of charge, there is no warranty
+for the software, to the extent permitted by applicable law. Except when
+otherwise stated in writing the copyright holders and other parties
+provide the software "as is" without warranty of any kind, either
+expressed or implied, including, but not limited to, the implied
+warranties of merchantability and fitness for a particular purpose. The
+entire risk as to the quality and performance of the software is with
+you. Should the software prove defective, you assume the cost of all
+necessary servicing, repair, or correction.
+
+In no event unless required by applicable law or agreed to in writing
+will any copyright holder, or any other party who may modify or
+redistribute the software as permitted by the above license, be
+liable to you for damages, including any general, special, incidental,
+or consequential damages arising out of the use or inability to use
+the software (including but not limited to loss of data or data being
+rendered inaccurate or losses sustained by you or third parties or a
+failure of the software to operate with any other software), even if
+such holder or other party has been advised of the possibility of
+such damages.
+
+=head1 Author, License, and Disclaimer of Warranty
+
+See L<>.
+
+=cut
+
