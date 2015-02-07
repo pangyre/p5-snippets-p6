@@ -22,7 +22,7 @@ they sink in.
 =head3 use lib ...;
 
 Something I resort to where the C<ENV> is unsure and C<@INC> stuff has
-to be done at run time looks like this messE<ndash>;
+to be done at run time looks like this messE<ndash>
 
 =over 4
 
@@ -36,7 +36,7 @@ to be done at run time looks like this messE<ndash>;
  }
  use lib $lib;
 
-Which in Perl6 becomes the much more graceful and obviousE<ndash>;
+Which in Perl6 becomes the much more graceful and obviousE<ndash>
 
 =item Perl6
 
